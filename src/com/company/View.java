@@ -7,7 +7,7 @@ public class View {
     Scanner scanner = new Scanner(System.in);
 
 
-    public void showFirst(List<Car> carList) {
+    public void inputCarName(List<Car> carList) {
 
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 
@@ -20,7 +20,7 @@ public class View {
         }
     }
 
-    public int showSecond(){
+    public int inputRoundNum(){
         int roundNum;
 
         System.out.println("시도할 횟수는 몇회인가요?");

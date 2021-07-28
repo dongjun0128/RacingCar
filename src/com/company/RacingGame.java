@@ -11,8 +11,8 @@ public class RacingGame {
     private List<Car> carList = new ArrayList<>();
 
     public void game(){
-        view.showFirst(carList);
-        int roundNum = view.showSecond();
+        view.inputCarName(carList);
+        int roundNum = view.inputRoundNum();
 
         for (int round = 0; round < roundNum; round++) {
             view.println(round + 1 + "회");
@@ -32,6 +32,4 @@ public class RacingGame {
         race.findTheFastestCar(carList, max);
         view.println("가 최종우승했습니다.");
     }
-
-
 }
