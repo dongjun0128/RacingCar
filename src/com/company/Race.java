@@ -1,42 +1,47 @@
 package com.company;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class Race {
-
-    Random random;
-    View view;
+    Random random = new Random();
+    View view = new View();
 
     public Race() {
-        random = new Random();
-        view = new View();
     }
 
     public void goingTrack(int track) {
-        for (int loop = 0; loop < track; loop++) {
-            view.print("-");
+        View var10000;
+        for(int loop = 0; loop < track; ++loop) {
+            var10000 = this.view;
+            View.print("-");
         }
-        view.println("");
+
+        var10000 = this.view;
+        View.println("");
     }
 
     public int findMaxInt(List<Car> carList) {
-        Car maxCar = Collections.max(carList, new CarComparator());
+        Car maxCar = (Car)Collections.max(carList, new CarComparator());
         return maxCar.getTrack();
     }
 
     public void findTheFastestCar(List<Car> carList, int max) {
-        List<String> theFastestCarList = new ArrayList<>();
+        List<String> theFastestCarList = new ArrayList();
 
-        for (int carIndex = 0; carIndex < carList.size(); carIndex++) {
-            if (carList.get(carIndex).getTrack() == max) {
-                theFastestCarList.add(carList.get(carIndex).getName());
+        for(int carIndex = 0; carIndex < carList.size(); ++carIndex) {
+            if (((Car)carList.get(carIndex)).getTrack() == max) {
+                theFastestCarList.add(((Car)carList.get(carIndex)).getName());
             }
         }
-        view.print(String.join(",",theFastestCarList));
+
+        View var10000 = this.view;
+        View.print(String.join(",", theFastestCarList));
     }
 
     public int randomNum() {
-        return random.nextInt(3);
+        return this.random.nextInt(3);
     }
-
 }

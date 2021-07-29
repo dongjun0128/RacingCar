@@ -10,7 +10,8 @@ public class Main {
 
         do {
             game1.game();
-            flag =game1.View.askRestart();
+            flag = View.askRestart();
+            game1.initGame();
         }while(flag == 0);
 
         game1.View.println("게임을 종료합니다.");

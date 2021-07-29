@@ -1,40 +1,38 @@
 package com.company;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 public class View {
+    private static Scanner scanner;
 
-    private static Scanner scanner = new Scanner(System.in);
-
+    public View() {
+    }
 
     public static void inputCarName(List<Car> carList) {
-
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-
         String str = scanner.next();
+        List<String> carNameList = new ArrayList(Arrays.asList(str.split(",")));
 
-        List<String> carNameList = new ArrayList<String>(Arrays.asList(str.split(",")));
-
-        for (int index = 0; index < carNameList.size(); index++) {
-            carList.add(new Car(carNameList.get(index)));
+        for(int index = 0; index < carNameList.size(); ++index) {
+            carList.add(new Car((String)carNameList.get(index)));
         }
+
     }
 
     public static int inputRoundNum() {
-        int roundNum;
-
         System.out.println("시도할 횟수는 몇회인가요?");
-        roundNum = scanner.nextInt();
-
+        int roundNum = scanner.nextInt();
         return roundNum;
     }
 
     public static int askRestart() {
         System.out.println("한 번 더 진행 하시겠습니까? Y/N");
+        byte flag = 2;
 
-        int flag = 2;
-
-        while (flag == 2) {
+        while(flag == 2) {
             String restart = scanner.next();
             if (restart.equals("Y")) {
                 flag = 0;
@@ -56,4 +54,7 @@ public class View {
         System.out.print(str);
     }
 
+    static {
+        scanner = new Scanner(System.in);
+    }
 }
