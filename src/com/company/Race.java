@@ -4,11 +4,19 @@ import java.util.*;
 
 public class Race {
 
+    Random random;
+    View view;
+
+    public Race() {
+        random = new Random();
+        view = new View();
+    }
+
     public void goingTrack(int track) {
-        for (int loop = 0; loop < track ; loop++) {
-            System.out.print("-");
+        for (int loop = 0; loop < track; loop++) {
+            view.print("-");
         }
-        System.out.println();
+        view.println("");
     }
 
     public int findMaxInt(List<Car> carList) {
@@ -17,15 +25,17 @@ public class Race {
     }
 
     public void findTheFastestCar(List<Car> carList, int max) {
-        for(int carIndex = 0 ; carIndex < carList.size() ; carIndex++) {
-            if(carList.get(carIndex).getTrack() == max) {
-                System.out.print(carList.get(carIndex).getName() );
+        List<String> theFastestCarList = new ArrayList<>();
+
+        for (int carIndex = 0; carIndex < carList.size(); carIndex++) {
+            if (carList.get(carIndex).getTrack() == max) {
+                theFastestCarList.add(carList.get(carIndex).getName());
             }
         }
-
+        view.print(String.join(",",theFastestCarList));
     }
+
     public int randomNum() {
-        Random random = new Random(); // new Random()이랑 그냥 변수 가져다가 쓰는 것에 차이점,, 없으면 없다고
         return random.nextInt(3);
     }
 

@@ -10,10 +10,10 @@ public class Main {
 
         do {
             game1.game();
-            flag =game1.view.askRestart();
+            flag =game1.View.askRestart();
         }while(flag == 0);
 
-        game1.view.println("게임을 종료합니다.");
+        game1.View.println("게임을 종료합니다.");
 
     }
 }
