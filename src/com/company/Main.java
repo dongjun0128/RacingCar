@@ -14,7 +14,7 @@ public class Main {
             game1.initGame();
         }while(flag == 0);
 
-        game1.View.println("게임을 종료합니다.");
+        View.println("게임을 종료합니다.");
 
     }
 }
